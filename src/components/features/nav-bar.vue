@@ -1,42 +1,134 @@
 <template>
-    <div class="nav-full">
-        <ul>
-            <li>Home</li>
-            <li>Attraction</li>
-            <li>Wildlife Streaming</li>
-            <li>Tourism News</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
-        </ul>
-
-        dgfhdg
-        </div>
+  
+  <div class="nav">
+  <input type="checkbox" id="nav-check">
+  <div class="nav-header">
+    <div class="nav-title">
+     <img src="../../assets/Homepage-img/logo-03.png" alt="logo">
+    </div>
+  </div>
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+  
+  <div class="nav-links">
+    <a href="/" >Home</a>
+    <a href="/travel" >Travel Information</a>
+    <a href="/about" >About SriLanka</a>
+    <a href="/destination" >Destination</a>
+    <a href="/experience" >Experience</a>
+  </div>
+</div>
 </template>
 <script>
 export default {
-    name:'Navbar'
-}
+  name: "Navbar",
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+};
 </script>
 <style scoped>
 
-.nav-full {
-    background-color: rgba(0, 0, 0, 0.637);
-    color: white;
-    position: fixed;
-    width: 100%;
-    
- }
- .nav-full ul{
-     padding: 0 !important;
-     margin: 0 !important;
-     text-align: center;
- }
-.nav-full ul li{
-    position: sticky;
-    top: 0;
-    width: auto;
-    margin: 10px ;
+.nav {
+  height: 70px;
+  width: 100%;
+  background-color: #18423621 ;
+  position: fixed;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  padding: 10px 10px 10px 10px;
+}
+.nav > .nav-header > .nav-title img{
+    border-radius: 50%;
+    widows: 90px;
+    height: 90px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  margin: auto;
+  float: right;
+  font-size: 16px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 25px 10px 25px 10px;
+  text-decoration: none;
+  color: khaki;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
     display: inline-block;
-    
-    }
-    </style>
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+</style>
